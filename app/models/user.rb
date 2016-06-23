@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_one :company, optional: true
-  has_one :student_profile, optional: true
+  rolify
+  has_one :company
+  has_one :student_profile
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

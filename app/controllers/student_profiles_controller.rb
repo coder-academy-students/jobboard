@@ -1,5 +1,6 @@
 class StudentProfilesController < ApplicationController
   before_action :set_student_profile, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   # GET /student_profiles
   # GET /student_profiles.json

@@ -9,6 +9,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'country_select'
 gem 'bootstrap'
+gem 'rolify'
+gem 'cancancan'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
