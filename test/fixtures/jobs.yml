@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  title: MyString
+  remote: false
+  address: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  closing_date: 2016-06-23
+  status: MyString
+  job_type: one
+  experience_level: MyString
+
+two:
+  company: two
+  title: MyString
+  remote: false
+  address: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  closing_date: 2016-06-23
+  status: MyString
+  job_type: two
+  experience_level: MyString
