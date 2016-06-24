@@ -1,5 +1,19 @@
-<h1>New Company</h1>
+<h1>Register your company</h1>
 
-<%= render 'form', company: @company %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-block">
+      <p class="lead">
+        To be able to list a job, you need to first register your company and be approved by Coder Factory.
+      </p>
+    </div>
 
-<%= link_to 'Back', companies_path %>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-block">
+      <%= render 'form', company: @company %>
+    </div>
+
+  </div>
+
+</div>
