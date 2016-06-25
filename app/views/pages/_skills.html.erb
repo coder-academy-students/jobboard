@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        Icon
+      </th>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td>
+          <%= image_tag skill.icon, width: '30px' %>
+        </td>
+        <td><%= link_to skill.name, skill %></td>
+        <td><%= link_to icon('pencil'), edit_skill_path(skill) %></td>
+        <td><%= link_to icon('trash'), skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Skill', new_skill_path %>

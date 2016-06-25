@@ -26,6 +26,27 @@ skills = [
 ]
 
 skills.each do |skill|
-  Skill.create(skill) if Skill.where(name: skill[:name]).count < 1
-  puts skill[:name] + ' DONE'
+  if Skill.where(name: skill[:name]).count < 1
+    Skill.create(skill)
+    puts skill[:name] + ' DONE'
+  end
+end
+
+u1 = User.new(email: 'pete@coderfactory.com', password: '12345678')
+if u1.save
+  u1.add_role :admin
+  puts 'u1 saved and role admin added'
+end
+
+job_types = [
+  { name: 'Part time' },
+  { name: 'Full time' },
+  { name: 'Contract' }
+]
+
+job_types.each do |job_type|
+  if JobType.where(name: job_type[:name]).count < 1
+    JobType.create(job_type)
+    puts job_type[:name] + ' DONE'
+  end
 end

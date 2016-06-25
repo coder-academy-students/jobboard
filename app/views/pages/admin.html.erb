@@ -1,0 +1,52 @@
+<h1>Admin</h1>
+<% if notice %>
+<p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-block">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="nav-item">
+          <%= link_to admin_path(show: 'companies'), class: 'nav-link' do %>
+            Companies <span class="label label-default"><%= @companies.count %></span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to admin_path(show: 'active-jobs'), class: 'nav-link' do %>
+            Active Jobs <span class="label label-default"><%= @active_jobs.count %></span>
+          <% end %>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <%= link_to admin_path(show: 'skills'), class: 'nav-link' do %>
+            Skills <span class="label label-default"><%= @skills.count %></span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="col-md-8">
+    <% if @new_companies.any? %>
+      <div class="card card-block">
+        <h2 class="card-title">New company registrations</h2>
+        <%= render 'new_companies' %>
+      </div>
+    <% end %>
+    <% if params[:show] == 'companies' %>
+      <div class="card card-block">
+        <h2 class="card-title">All companies</h2>
+        <%= render 'companies' %>
+      </div>
+    <% end %>
+    <% if params[:show] == 'skills' %>
+      <div class="card card-block">
+        <h2 class="card-title">All skills</h2>
+        <%= render 'skills' %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

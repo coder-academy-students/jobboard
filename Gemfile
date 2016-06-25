@@ -9,9 +9,14 @@ gem 'devise'
 gem 'simple_form'
 gem 'country_select'
 gem 'bootstrap'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'friendly_id'
 gem 'rolify'
 gem 'cancancan'
-
+gem 'font-awesome-sass'
+gem 'workflow'
+gem 'geocoder'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -40,6 +45,8 @@ gem 'jbuilder', '~> 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'quiet_assets'
+  gem 'better_errors'
 end
 
 group :development do

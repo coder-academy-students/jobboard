@@ -2,17 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :website %>
-    <%= f.input :contact_name %>
-    <%= f.input :contact_phone %>
-    <%= f.input :logo %>
-    <%= f.input :info %>
-    <%= f.input :approved %>
-    <%= f.association :user %>
+    <%= f.input :name, label: 'Company name' %>
+    <%= f.input :website, label: 'Full web URL', placeholder: 'https://...' %>
+    <%= f.input :contact_name, label: 'Contact person name' %>
+    <%= f.input :contact_phone, label: 'Contact person phone' %>
+    <%= f.input :logo, label: 'Company logo image' %>
+    <%= f.input :info, label: 'Description of company' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <% if @company.new_record? %>
+      <%= f.submit "Request access", class: 'btn btn-primary' %>
+    <% else %>
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 <% end %>

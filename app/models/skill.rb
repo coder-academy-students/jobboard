@@ -3,4 +3,6 @@ class Skill < ApplicationRecord
   has_many :jobs, through: :job_skills
   has_many :student_skills
   has_many :student_profiles, through: :student_skills
+
+  scope :alphabetical, -> { order(name: :asc) }
 end

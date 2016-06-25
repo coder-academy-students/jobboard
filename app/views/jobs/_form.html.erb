@@ -2,20 +2,19 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :company %>
-    <%= f.input :title %>
-    <%= f.input :remote %>
-    <%= f.input :address %>
+    <%= f.input :title, label: 'Job title' %>
+    <%= f.input :description, label: 'Job description' %>
+    <%= f.input :hourly_rate, label: 'Hourly rate offered in AUD', collection: [30, 40, 50, 60, 70, 80, 90, 100] %>
+    <%= f.association :job_type, as: :radio_buttons %>
+    <%= f.input :remote, label: 'Work can be done remotely?' %>
+    <%= f.input :experience_level, collection: ['Junior', 'Intermediate', 'Senior'] %>
+    <%= f.input :address, label: 'Address (Only city and country will be displayed)' %>
     <%= f.input :city %>
     <%= f.input :state %>
-    <%= f.input :country %>
-    <%= f.input :closing_date %>
-    <%= f.input :status %>
-    <%= f.association :job_type %>
-    <%= f.input :experience_level %>
+    <%= f.input :country, priority: ['Australia'], input_html: { class: 'my-select' } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit 'Select required skills', class: 'btn btn-primary' %>
   </div>
 <% end %>

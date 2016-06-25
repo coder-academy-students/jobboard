@@ -1,0 +1,2 @@
+class CompanyApprovedMailer < ApplicationMailer
+end

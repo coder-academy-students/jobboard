@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Contact name</th>
+      <th></th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @new_companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company.website, target: '_blank' %></td>
+        <td><%= company.contact_name %></td>
+        <td><%= button_to 'Approve', approve_company_path(company), class: 'btn btn-success btn-sm', data: { confirm: 'Are you sure?'} %></td>
+        <td><%= link_to 'Details', company, class: 'btn btn-warning btn-sm' %></td>
+        <td><%= link_to icon('trash'), company, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

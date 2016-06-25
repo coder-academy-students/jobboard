@@ -1,6 +1,14 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :approve]
   skip_before_action :authenticate_user!, only: [:show, :index]
+
+  # POST /companies/1/approve
+  def approve
+    @company.approve
+    @company.user.add_role :company
+    # TODO send APPROVED email
+    redirect_to :back, notice: @company.name + ' approved'
+  end
 
   # GET /companies
   # GET /companies.json
@@ -26,7 +34,7 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-
+    @company.user = current_user
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created.' }

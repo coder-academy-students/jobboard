@@ -1,0 +1,23 @@
+<h1>Dashboard</h1>
+<% if notice %>
+<p id="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-block">
+      <%= render 'companies/form' %>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <%= link_to icon('plus-circle') + ' Add a job', new_job_path, class: 'btn btn-success' %>
+    <% if @jobs.any? %>
+      <div class="card card-block">
+        <h2 class="card-title">My listed jobs</h2>
+        <%= render 'skills' %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>

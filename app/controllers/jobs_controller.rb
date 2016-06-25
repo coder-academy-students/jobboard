@@ -26,6 +26,8 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
+    @job.company = current_user.company
+    @job.closing_date = Date.today + 30.days
 
     respond_to do |format|
       if @job.save
@@ -70,6 +72,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:company_id, :title, :remote, :address, :city, :state, :country, :closing_date, :status, :job_type_id, :experience_level)
+      params.require(:job).permit(:description, :title, :remote, :address, :city, :state, :country, :job_type_id, :experience_level, :hourly_rate)
     end
 end

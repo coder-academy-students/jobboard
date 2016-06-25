@@ -1,1 +1,21 @@
 @import 'bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+  padding-top: 60px;
+}
+.text-center {
+  text-align: center;
+}
+
+.form-label {
+  font-weight: bold;
+}
+.my-select {
+  height: 1.5rem;
+}
+
+.card {
+  border-radius: 0px;
+}

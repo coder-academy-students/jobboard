@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624155332) do
+ActiveRecord::Schema.define(version: 20160624183005) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20160624155332) do
     t.string   "contact_phone"
     t.string   "logo"
     t.text     "info"
-    t.boolean  "approved"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "approved",      default: false
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20160624155332) do
   create_table "jobs", force: :cascade do |t|
     t.integer  "company_id"
     t.string   "title"
-    t.boolean  "remote"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -54,8 +53,13 @@ ActiveRecord::Schema.define(version: 20160624155332) do
     t.string   "status"
     t.integer  "job_type_id"
     t.string   "experience_level"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "remote",           default: false
+    t.text     "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "hourly_rate"
     t.index ["company_id"], name: "index_jobs_on_company_id"
     t.index ["job_type_id"], name: "index_jobs_on_job_type_id"
   end

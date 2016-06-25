@@ -1,5 +1,23 @@
-<h1>New Job</h1>
 
-<%= render 'form', job: @job %>
 
-<%= link_to 'Back', jobs_path %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-block">
+      <h1 class="card-title">New Job</h1>
+      <p class="lead">
+        To be able to list a job, you need to first register your company and be approved by Coder Factory.
+      </p>
+    </div>
+
+  </div>
+  <div class="col-md-8">
+    <div class="card card-block">
+      <%= render 'form', job: @job %>
+    </div>
+
+  </div>
+
+</div>
+
+
+<%= link_to 'Cancel', dashboard_path %>

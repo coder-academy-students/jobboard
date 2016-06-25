@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Company Name</th>
+      <th>Contact name</th>
+      <th class="text-center">Approved</th>
+      <th class="text-center">
+        Active Jobs
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company %> <small><%= link_to icon('external-link'), company.website, target: '_blank' %></small></td>
+        <td><%= company.contact_name %></td>
+        <td class="text-center">
+          <% if company.approved %>
+            <%= icon('check-circle') %>
+          <% else %>
+            <%= button_to 'Approve', approve_company_path(company), class: 'btn btn-success btn-sm', data: { confirm: 'Are you sure?'} %>
+          <% end %>
+        </td>
+        <td class="text-center">
+          ?
+        </td>
+        <td class="text-center"><%= link_to icon('trash'), company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
